@@ -4,7 +4,7 @@ const express = require("express");
 
 
 const app = express();
-app.use(express.json());
+app.use(express.json());//à mettre tout le temps pour json
 
 const port = process.env.APP_PORT ?? 5000;
 
@@ -15,7 +15,7 @@ const welcome = (req, res) => {
 app.get("/", welcome);
 const usersHandlers = require("./usersHandlers");
 
-app.get("/api/users", usersHandlers.getUsers);
+app.get("/api/users/", usersHandlers.getUsers);
 app.get("/api/users/:id", usersHandlers.getUsersById);
 //quête express 03
 app.post("/api/users", usersHandlers.postUser);
