@@ -1,7 +1,9 @@
 require("dotenv").config();
 
 const express = require("express");
+const { validateMovie } = require("./validators.js");
 
+app.post("/api/movies", validateMovie, movieHandlers.postMovie);
 
 const app = express();
 app.use(express.json());//à mettre tout le temps pour json
