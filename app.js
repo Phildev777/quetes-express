@@ -36,17 +36,63 @@ app.post(
 app.use(verifyToken); //mur d'autentification
 
 //routes privées
+
 app.post("/api/movies", movieHandlers.postMovie);
 app.put("/api/movies/:id", movieHandlers.updateMovie);
 app.delete("/api/movies/:id", movieHandlers.deleteMovie);
 
 
-//app.post("/api/users", userHandlers.postUser);
+
 app.put("/api/users/:id", userHandlers.updateUser);
 app.delete("/api/users/:id", userHandlers.deleteUser);
 
 
 
+
+
+
+
+
+app.listen(port, (err) => {
+  if (err) {
+    console.error("Something bad happened");
+  } else {
+    console.log(`Server is listening on ${port}`);
+  }
+});
+
+
+
+
+
+
+
+
+/*------------------------------------------ sauvegardes ------------------------------------------*/
+
+
+/* {
+  "email": "mymail@theoffice.com",
+  "password": "12346"
+} */
+/* {
+
+  "firstname": "Joh",
+  "lastname": "Do",
+   "email": "mymail@theoffice.com",
+  "city": "Paris",
+  "language": "English",
+  "password": "12346"
+} */
+
+/* {
+
+  "title": "Lost world",
+  "director": "Spielberg",
+  "year": "1995",
+  "color": "1",
+  "duration": 200
+} */
 
 /* const isItDwight = (req, res) => {
   if (req.body.email === "dwight@theoffice.com" && req.body.password === "123456") {
@@ -58,7 +104,7 @@ app.delete("/api/users/:id", userHandlers.deleteUser);
 
 //app.post("/api/login", isItDwight);
 
-
+//app.post("/api/users", userHandlers.postUser);
 
 
 
@@ -66,35 +112,3 @@ app.delete("/api/users/:id", userHandlers.deleteUser);
 
 
 //const { hashPassword } = require("./auth.js");
-
-
-
-app.listen(port, (err) => {
-  if (err) {
-    console.error("Something bad happened");
-  } else {
-    console.log(`Server is listening on ${port}`);
-  }
-});
-/* {
-  "email": "mymail@theoffice.com",
-  "password": "12346"
-} */
-/* {
-        
-  "firstname": "Joh",
-  "lastname": "Do",
-   "email": "mymail@theoffice.com",
-  "city": "Paris",
-  "language": "English",
-  "password": "12346"
-} */
-
-/* {
-      
-  "title": "Lost world",
-  "director": "Spielberg",
-  "year": "1995",
-  "color": "1",
-  "duration": 200
-} */
